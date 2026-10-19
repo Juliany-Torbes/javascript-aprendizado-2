@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Na fila</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <main class="player">
+
+        <header class="topo">
+            <h1>Na fila</h1>
+            <p class="contagem">Fila vazia</p>
+        </header>
+
+        <section class="tocando">
+            <h2>Tocando agora</h2>
+            <p class="musica-atual">Nada tocando</p>
+            <button type="button" class="botao-proxima">Próxima</button>
+        </section>
+
+        <form class="formulario">
+            <h2>Comandos</h2>
+
+            <p>
+                <label for="musica">Música</label>
+                <input type="text" id="musica" class="campo-musica">
+            </p>
+
+            <div class="botoes">
+                <button type="submit" class="botao-adicionar">Adicionar ao fim</button>
+                <button type="button" class="botao-furar">Tocar depois desta</button>
+                <button type="button" class="botao-remover">Remover da fila</button>
+                <button type="button" class="botao-desfazer">Desfazer última</button>
+            </div>
+
+            <p class="aviso"></p>
+        </form>
+
+        <section class="fila">
+            <h2>A seguir</h2>
+            <ol class="lista"></ol>
+        </section>
+
+    </main>
+
+</body>
+
+</html>

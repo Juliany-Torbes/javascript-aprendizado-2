@@ -1,0 +1,192 @@
+:root {
+    --cor-fundo: #f5f1fb;
+    --cor-cartao: #ffffff;
+    --cor-texto: #2a1f3d;
+    --cor-destaque: #7b2ff7;
+    --cor-alerta: #c2185b;
+
+    /* Uma cor para cada gênero */
+    --cor-pop: #e64980;
+    --cor-rock: #495057;
+    --cor-funk: #f08c00;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 24px 16px;
+    background-color: var(--cor-fundo);
+    font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: var(--cor-texto);
+}
+
+/* Celular: tudo empilhado */
+.app {
+    display: grid;
+    gap: 16px;
+    max-width: 880px;
+    margin: 0 auto;
+    grid-template-areas:
+        "topo"
+        "formulario"
+        "musicas";
+}
+
+.topo       { grid-area: topo; }
+.formulario { grid-area: formulario; }
+.musicas    { grid-area: musicas; }
+
+h1 {
+    margin: 0;
+}
+
+.contagem {
+    margin: 4px 0 0 0;
+    color: #7a6f8f;
+}
+
+.formulario,
+.musicas {
+    padding: 20px;
+    border-radius: 12px;
+    background-color: var(--cor-cartao);
+}
+
+h2 {
+    margin: 0 0 12px 0;
+    font-size: 18px;
+}
+
+.formulario p {
+    margin: 0 0 12px 0;
+}
+
+label {
+    display: block;
+    margin-bottom: 4px;
+    font-weight: bold;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #d6cce6;
+    border-radius: 8px;
+    font-size: 16px;
+    background-color: #ffffff;
+}
+
+.formulario button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--cor-destaque);
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.formulario button:hover {
+    background-color: #6420d6;
+}
+
+.aviso {
+    min-height: 20px;
+    color: var(--cor-alerta);
+    font-weight: bold;
+}
+
+
+/* A lista */
+
+.lista {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.lista li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 12px;
+    margin-bottom: 6px;
+    border-radius: 6px;
+    background-color: #faf8fd;
+    border-left: 6px solid #cccccc;
+}
+
+.titulo {
+    flex: 1;
+}
+
+/* A etiqueta com o gênero */
+.etiqueta {
+    padding: 2px 8px;
+    border-radius: 999px;
+    background-color: #cccccc;
+    color: #ffffff;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+
+/* Seletor de atributo: escolhe pelo valor do data-genero.
+   O JavaScript só diz qual é o gênero. A cor é do CSS. */
+
+.lista li[data-genero="pop"]  { border-left-color: var(--cor-pop); }
+.lista li[data-genero="rock"] { border-left-color: var(--cor-rock); }
+.lista li[data-genero="funk"] { border-left-color: var(--cor-funk); }
+
+[data-genero="pop"]  .etiqueta { background-color: var(--cor-pop); }
+[data-genero="rock"] .etiqueta { background-color: var(--cor-rock); }
+[data-genero="funk"] .etiqueta { background-color: var(--cor-funk); }
+
+
+/* O botão de remover, o mesmo de 16/10 */
+
+.botao-remover {
+    padding: 2px;
+    border: none;
+    border-radius: 4px;
+    background-color: transparent;
+    color: #888888;
+    line-height: 0;
+    cursor: pointer;
+}
+
+.botao-remover:hover {
+    color: #c62828;
+    background-color: #ffe3e3;
+}
+
+.botao-remover:focus-visible {
+    outline: 2px solid #c62828;
+}
+
+
+/* A partir de 800px: formulário à esquerda, músicas à direita */
+
+@media (min-width: 800px) {
+
+    .app {
+        grid-template-columns: 1fr 2fr;
+        grid-template-areas:
+            "topo       topo"
+            "formulario musicas";
+        align-items: start;
+    }
+
+}
+
+
+/* O filtro, acima da lista */
+.filtro {
+    margin: 0 0 12px 0;
+}

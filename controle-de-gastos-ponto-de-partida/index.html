@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pra onde foi meu dinheiro?</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <header class="topo">
+        <h1>Pra onde foi meu dinheiro?</h1>
+        <p>Registre seus gastos e descubra.</p>
+    </header>
+
+    <main class="painel">
+
+        <section class="cartao novo-gasto">
+            <h2>Novo gasto</h2>
+
+            <form class="formulario">
+                <p>
+                    <label for="descricao">Descrição</label>
+                    <input type="text" id="descricao" class="campo-descricao" placeholder="Ex.: lanche">
+                </p>
+
+                <p>
+                    <label for="valor">Valor (R$)</label>
+                    <input type="number" id="valor" class="campo-valor" step="0.01" placeholder="Ex.: 12.50">
+                </p>
+
+                <p>
+                    <label for="categoria">Categoria</label>
+                    <select id="categoria" class="campo-categoria"></select>
+                </p>
+
+                <button type="submit">Adicionar</button>
+
+                <p class="erro"></p>
+            </form>
+        </section>
+
+        <section class="cartao resumo">
+            <h2>Resumo</h2>
+
+            <div class="indicadores">
+                <div class="indicador">
+                    <span class="rotulo">Total gasto</span>
+                    <strong class="total">R$ 0,00</strong>
+                </div>
+
+                <div class="indicador">
+                    <span class="rotulo">Gastos registrados</span>
+                    <strong class="quantidade">0</strong>
+                </div>
+
+                <div class="indicador">
+                    <span class="rotulo">Média por gasto</span>
+                    <strong class="media">R$ 0,00</strong>
+                </div>
+
+                <div class="indicador">
+                    <span class="rotulo">Maior gasto</span>
+                    <strong class="maior">—</strong>
+                </div>
+
+                <div class="indicador">
+                    <span class="rotulo">Menor gasto</span>
+                    <strong class="menor">—</strong>
+                </div>
+            </div>
+
+            <div class="orcamento">
+                <span class="rotulo">Orçamento da semana: R$ 50,00</span>
+                <strong class="restante">R$ 50,00 disponíveis</strong>
+            </div>
+        </section>
+
+        <section class="cartao categorias-cartao">
+            <h2>Por categoria</h2>
+            <ul class="categorias"></ul>
+        </section>
+
+        <section class="cartao historico-cartao">
+            <h2>Histórico</h2>
+
+             <p class="filtro">
+                <label for="filtro">Mostrar</label>
+                <select id="filtro" class="campo-filtro">
+                    <option value="todos">Todos os gastos</option>
+                    <option value="pop">Só Alimentação</option>
+                    <option value="rock">Só Transporte</option>
+                    <option value="funk">Só Lazer</option>
+                </select>
+            </p>
+
+            
+            <table class="tabela-historico">
+                    <caption>Todos os gastos, na ordem em que entraram</caption>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Descrição</th>
+                            <th><span class="etiqueta">Categoria</span></th>
+                            <th>Valor</th>
+                            <th>Apagar</th>
+                        </tr>
+                    </thead>
+                    <tbody class="historico"></tbody>
+                    <tfoot>
+                        <tr>
+                            <th colspan="2">Total</th>
+                            <td class="total-rodape">R$ 0,00</td>
+                        </tr>
+                        <tr class="categoria">
+                            <th colspan="2">Categoria</th>
+                            <td class="categoria-rodape"></td>
+                        </tr>
+                    </tfoot>
+            </table>
+            <button type="button" class="botao-desfazer">Desfazer último gasto</button>
+        </section>
+
+    </main>
+
+</body>
+
+</html>

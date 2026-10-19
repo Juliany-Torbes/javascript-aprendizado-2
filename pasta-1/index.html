@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha playlist</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <main class="app">
+
+        <header class="topo">
+            <h1>Minha playlist</h1>
+            <p class="contagem"></p>
+        </header>
+
+        <form class="formulario">
+            <h2>Nova música</h2>
+
+            <p>
+                <label for="titulo">Música</label>
+                <input type="text" id="titulo" class="campo-titulo">
+            </p>
+
+            <p>
+                <label for="genero">Gênero</label>
+                <select id="genero" class="campo-genero">
+                    <option value="pop">Pop</option>
+                    <option value="rock">Rock</option>
+                    <option value="funk">Funk</option>
+                </select>
+            </p>
+
+            <button type="submit">Adicionar</button>
+
+            <p class="aviso"></p>
+        </form>
+
+        <section class="musicas">
+            <h2>Músicas</h2>
+            <ul class="lista"></ul>
+        </section>
+
+    </main>
+
+</body>
+
+</html>

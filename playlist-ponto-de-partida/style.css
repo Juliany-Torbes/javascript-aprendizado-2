@@ -1,0 +1,83 @@
+/* Sem estilização ainda: bordas e fundos só para enxergar
+   onde cada área do grid começa e termina. */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 16px;
+    font-family: Arial, sans-serif;
+}
+
+.player {
+    display: grid;
+    gap: 12px;
+    max-width: 880px;
+    margin: 0 auto;
+
+    /* Celular: tudo empilhado */
+    grid-template-areas:
+        "topo"
+        "tocando"
+        "formulario"
+        "fila";
+}
+
+.topo       { grid-area: topo; }
+.tocando    { grid-area: tocando; }
+.formulario { grid-area: formulario; }
+.fila       { grid-area: fila; }
+
+.topo,
+.tocando,
+.formulario,
+.fila {
+    padding: 12px;
+    border: 2px solid #333333;
+}
+
+.topo       { background-color: #fde2e4; }
+.tocando    { background-color: #e2ece9; }
+.formulario { background-color: #fff1c1; }
+.fila       { background-color: #dfe7fd; }
+
+
+/* A fila: lista numerada */
+
+.lista li {
+    padding: 8px;
+}
+
+/* Linhas zebradas: os itens pares (2º, 4º, 6º...) */
+.lista li:nth-child(even) {
+    background-color: #ffffff;
+}
+
+/* A primeira da fila é a próxima a tocar */
+.lista li:first-child {
+    font-weight: bold;
+}
+
+
+button:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+
+/* A partir de 800px: a fila vai para a direita e ocupa
+   a altura de duas linhas. */
+
+@media (min-width: 800px) {
+
+    .player {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+            "topo       topo"
+            "tocando    fila"
+            "formulario fila";
+    }
+
+}
