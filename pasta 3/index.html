@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de endereço</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <header class="topo">
+        <h1>Cadastro de endereço</h1>
+        <button type="button" class="botao-tema">Tema escuro</button>
+    </header>
+
+    <main class="cartao">
+
+        <form class="busca-cep">
+            <label for="cep">CEP</label>
+            <div class="linha-cep">
+                <input type="text" id="cep" class="campo-cep" inputmode="numeric" maxlength="9"
+                    pattern="[0-9]{5}-?[0-9]{3}" placeholder="Ex.: 01001-000" required>
+                <button type="submit" class="botao-buscar">Buscar</button>
+            </div>
+            <p class="status" aria-live="polite">Digite o CEP e clique em Buscar.</p>
+        </form>
+
+        <fieldset class="endereco">
+            <legend>Endereço</legend>
+
+            <p>
+                <label for="rua">Rua</label>
+                <input type="text" id="rua" class="campo-rua">
+            </p>
+
+            <div class="linha-dupla">
+                <p>
+                    <label for="numero">Número</label>
+                    <input type="text" id="numero" class="campo-numero">
+                </p>
+                <p>
+                    <label for="complemento">Complemento</label>
+                    <input type="text" id="complemento" class="campo-complemento">
+                </p>
+            </div>
+
+            <p>
+                <label for="bairro">Bairro</label>
+                <input type="text" id="bairro" class="campo-bairro">
+            </p>
+
+            <div class="linha-dupla">
+                <p>
+                    <label for="cidade">Cidade</label>
+                    <input type="text" id="cidade" class="campo-cidade">
+                </p>
+                <p>
+                    <label for="uf">Estado</label>
+                    <input type="text" id="uf" class="campo-uf">
+                </p>
+            </div>
+        </fieldset>
+
+    </main>
+
+</body>
+
+</html>

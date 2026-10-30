@@ -1,0 +1,170 @@
+/* ===========================================================
+   Cadastro de endereço — o CSS, regra por regra
+
+   Vazio de propósito: a página aparece só com o HTML.
+   =========================================================== */
+
+
+   :root {
+   --cor-fundo: #f5f3ef;
+   --cor-cartao: #ffffff;
+   --cor-texto: #2b2d42;
+   --cor-suave: #6c6f86;
+   --cor-borda: #e3ded5;
+   --cor-principal: #2b8a3e;
+   --cor-principal-escura: #237032;
+   --cor-erro: #c92a2a;
+   --cor-sucesso: #2b8a3e;
+}
+
+* {
+   box-sizing: border-box;
+}
+
+body {
+   margin: 0;
+   background-color: var(--cor-fundo);
+   font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+   color: var(--cor-texto);
+}
+/* O topo: o título à esquerda, o botão do tema à direita */
+.topo {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   gap: 12px;
+   max-width: 560px;
+   margin: 0 auto;
+   padding: 24px 20px 8px 20px;
+}
+
+.topo h1 {
+   margin: 0;
+   font-size: 26px;
+}
+.cartao {
+   max-width: 560px;
+   margin: 16px auto;
+   padding: 20px;
+   border: 1px solid var(--cor-borda);
+   border-radius: 12px;
+   background-color: var(--cor-cartao);
+}
+label {
+   display: block;
+   margin-bottom: 4px;
+   font-weight: bold;
+}
+input {
+   width: 100%;
+   padding: 10px 12px;
+   border: 1px solid var(--cor-borda);
+   border-radius: 8px;
+   background-color: var(--cor-cartao);
+   color: var(--cor-texto);
+   font-size: 16px;
+}
+
+input:focus-visible,
+button:focus-visible {
+   outline: 3px solid var(--cor-principal);
+   outline-offset: 2px;
+}
+button {
+   padding: 10px 16px;
+   border: none;
+   border-radius: 8px;
+   background-color: var(--cor-principal);
+   color: #ffffff;
+   font-size: 16px;
+   font-weight: bold;
+   cursor: pointer;
+}
+
+button:hover {
+   background-color: var(--cor-principal-escura);
+}
+
+/* Enquanto busca, o botão fica apagado */
+button:disabled {
+   opacity: 0.5;
+   cursor: wait;
+}
+/* O botão do tema é discreto: só a borda */
+.botao-tema {
+   border: 1px solid var(--cor-borda);
+   background-color: var(--cor-cartao);
+   color: var(--cor-texto);
+   font-weight: normal;
+}
+
+.botao-tema:hover {
+   background-color: var(--cor-fundo);
+}
+/* O campo do CEP e o botão Buscar, lado a lado */
+.linha-cep {
+    display: flex;
+    gap: 8px;
+}
+
+/* A mensagem embaixo do CEP */
+.status {
+    min-height: 24px;
+    margin: 8px 0 0 0;
+    color: var(--cor-suave);
+}
+
+.status.erro {
+    color: var(--cor-erro);
+    font-weight: bold;
+}
+
+.status.sucesso {
+    color: var(--cor-sucesso);
+    font-weight: bold;
+}
+/* O endereço */
+.endereco {
+    margin: 20px 0 0 0;
+    padding: 0;
+    border: none;
+}
+
+legend {
+    margin-bottom: 8px;
+    padding: 0;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.endereco p {
+    margin: 0 0 12px 0;
+}
+/* Dois campos lado a lado: número e complemento, cidade e estado */
+.linha-dupla {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+
+/* -----------------------------------------------------------
+   Etapa 4 — o tema escuro: as mesmas variáveis, com as cores
+   escuras, valendo quando o <html> tiver a classe "escuro".
+   ----------------------------------------------------------- */
+
+html.escuro {
+    --cor-fundo: #15171f;
+    --cor-cartao: #1f2230;
+    --cor-texto: #e6e7ee;
+    --cor-suave: #9a9db3;
+    --cor-borda: #33374a;
+    --cor-principal: #2f9e44;
+    --cor-principal-escura: #2b8a3e;
+    --cor-erro: #ff8787;
+    --cor-sucesso: #8ce99a;
+
+    /* Os controles do navegador (os campos, a barra de rolagem)
+       também ficam escuros */
+    color-scheme: dark;
+}
